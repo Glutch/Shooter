@@ -15,9 +15,15 @@ public class LivingEntity : MonoBehaviour, IDamageable {
     }
 
     public void TakeHit(float damage, RaycastHit hit) {
+        //might still be usable later if we want to spawn particles at the point where the enemy were hit
+        TakeDamage(damage);
+    }
+
+    public void TakeDamage(float damage) {
         health -= damage;
 
-        if (health <= 0 && !dead) {
+        if (health <= 0 && !dead)
+        {
             Die();
         }
     }
